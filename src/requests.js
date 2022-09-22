@@ -1,4 +1,5 @@
 const requestMovies = {
+  fetchNetflixOriginals: `/discover/tv?api_key=${process.env.REACT_APP_TMDB_API_KEY_V3}&with_networks=213`,
   fetchTrending: `/trending/all/week?api_key=${process.env.REACT_APP_TMDB_API_KEY_V3}&language=en-US`,
   fetchTopRated: `/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_API_KEY_V3}&language=en-US`,
   fetchActionMovies: `/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY_V3}&with_genres=28`,

@@ -7,7 +7,8 @@
   --ff-primary: "Poppins", sans-serif;
   --ff-secondary: "Roboto", sans-serif;
   --transition: all 0.3s linear;
-  --radius: 0.25rem;
+  --radius: 0.5rem;
+  font-size: 62.5%;
 }
 
 *,
@@ -45,7 +46,7 @@ h2 {
   height: 200px;
   display: inline-block;
   overflow: hidden;
-  background: #ffffff;
+  background: var();
 }
 .spinner {
   width: 100%;

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import instance from "../instance";
+import Loader from "./Loader";
 
 const img_url = "https://image.tmdb.org/t/p/original";
 const no_img =
   "https://res.cloudinary.com/dxdboxbyb/image/upload/v1620052094/ayi6tvyiedrlmjiim6yn.png";
 const Row = ({ title, fetchUrl }) => {
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,6 +16,7 @@ const Row = ({ title, fetchUrl }) => {
         const request = await instance(fetchUrl);
         const moviesData = request.data.results;
         setMovies(moviesData);
+        setIsLoading(true);
 
         return request;
       } catch (error) {}
@@ -21,7 +24,11 @@ const Row = ({ title, fetchUrl }) => {
 
     fetchData();
   }, [fetchUrl]);
-  console.log(movies);
+  // console.log(movies);
+
+  if (!isLoading) {
+    return <Loader></Loader>;
+  }
   return (
     <Wrapper>
       {/* <div class="loading-spinner-container">
@@ -55,6 +62,7 @@ const Wrapper = styled.div`
 
   h2 {
     margin-left: 1.5rem;
+    font-size: 2.25rem;
   }
   .row-container {
     display: flex;
